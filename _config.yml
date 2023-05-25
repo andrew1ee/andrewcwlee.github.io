@@ -4,7 +4,7 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Andrew
-middle_name: Choong-Won
+middle_name: C.
 last_name: Lee
 email: awclee@ucdavis.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
@@ -64,7 +64,7 @@ max_width: 800px
 # Display links to the page with a preview object on social media.
 serve_og_meta: false # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+og_image: img/profile.jpg # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Social integration
