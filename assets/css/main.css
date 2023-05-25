@@ -7,7 +7,7 @@
  ******************************************************************************/
 :root {
   --global-bg-color: #ffffff;
-  --global-code-bg-color: rgba(181, 9, 172, 0.05);
+  --global-code-bg-color: #f6f6f6;
   --global-text-color: #000000;
   --global-text-color-light: #828282;
   --global-theme-color: #B509AC;
@@ -230,6 +230,11 @@ blockquote {
 .profile .address p {
   display: inline-block;
   margin: 0;
+}
+
+.mono {
+  font-family: monospace;
+  vertical-align: middle !important;
 }
 
 .profile.float-right {
@@ -470,13 +475,12 @@ footer.sticky-bottom {
 }
 .post-list li .post-meta {
   color: var(--global-text-color-light);
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin-bottom: 0;
 }
 .post-list li .post-tags {
   color: var(--global-text-color-light);
-  font-size: 0.875rem;
-  padding-top: 0.25rem;
+  font-size: 1rem;
   padding-bottom: 0;
 }
 .post-list li a {
