@@ -129,6 +129,11 @@ blockquote {
   }
 }
 
+.mono {
+  font-family: monospace;
+  vertical-align: middle !important;
+}
+
 .profile.float-right {
   margin-left: 1rem;
 }
@@ -436,14 +441,13 @@ footer.sticky-bottom {
 
     .post-meta {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
+      font-size: 1rem;
       margin-bottom: 0;
     }
 
     .post-tags {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
-      padding-top: 0.25rem;
+      font-size: 1rem;
       padding-bottom: 0;
     }
 

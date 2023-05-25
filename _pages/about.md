@@ -2,25 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: >
+ PhD Student · Department of Computer Science · University of California, Davis <br>
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Mar 2023: Happy me at Joshua Tree National Park, CA</p>
 
 news: true  # includes a list of news items
-latest_posts: true  # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+latest_posts: false  # includes a list of the newest posts
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a Ph.D. Student in Computer Science at UC Davis. I am also a member of [Laboratory for AI Robotics, and Automation (LARA)](https://soltanilab.engineering.ucdavis.edu), where I am fortunately advised by [Dr. Iman Soltani](https://faculty.engineering.ucdavis.edu/soltani/). Prior to UC Davis, I earned a B.S. in Mechanical Engineering from Hanyang University.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research interests mainly focus on the intersection of AI and robotics, with special emphasis on domain adaptation, representation learning, and generative models. I am deeply intrigued by the complexities and potential that these areas offer in the development of flexible, robust systems capable of functioning effectively in diverse environments and circumstances.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+{% raw %}
+I am always open to chat and discuss! Please reach my email at <span class='mono'>awclee [at] ucdavis [dot] edu</span>. 
+{% endraw %}
