@@ -10,7 +10,7 @@ profile:
   image: profile.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>Mar 2023: Happy me at Joshua Tree National Park, CA</p>
+    <p>Happy me at Joshua Tree National Park, CA – MAR 2023</p>
 
 news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts

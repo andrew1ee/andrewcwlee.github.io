@@ -1,4 +1,5 @@
 {% assign repo_url =  include.repository | split: '/' %}
+<!-- {% assign show_owner = include.show_owner %} -->
 
 {% if site.data.repositories.github_users contains repo_url.first %}
   {% assign show_owner = false %}
