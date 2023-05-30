@@ -736,6 +736,9 @@ html.transition *:after {
 .post .post-tags a:hover {
   color: var(--global-theme-color);
 }
+.post .text-3xl {
+  font-size: 2rem;
+}
 .post .post-content blockquote {
   border-left: 5px solid var(--global-theme-color);
   padding: 8px;

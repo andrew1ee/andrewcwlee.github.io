@@ -17,23 +17,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Prepare Jetson Orin Nano for Deep Learning projects | Andrew C. Lee</title>
+    <title>Install OpenCV natively on Jetson Orin Nano | Andrew C. Lee</title>
     <meta name="author" content="Andrew C. Lee">
-    <meta name="description" content="Install OpenCV, PyTorch and TensorRT for Python on Jetson Orin Nano">
+    <meta name="description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
 
     <!-- OpenGraph -->
     <meta property="og:site_name" content="Andrew C. Lee">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Andrew C. Lee | Prepare Jetson Orin Nano for Deep Learning projects">
-    <meta property="og:url" content="https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning-projects/">
-    <meta property="og:description" content="Install OpenCV, PyTorch and TensorRT for Python on Jetson Orin Nano">
+    <meta property="og:title" content="Andrew C. Lee | Install OpenCV natively on Jetson Orin Nano">
+    <meta property="og:url" content="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/">
+    <meta property="og:description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
     <meta property="og:image" content="/assets/img/profile_thumbnail.jpg">
     <meta property="og:locale" content="en">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Prepare Jetson Orin Nano for Deep Learning projects">
-    <meta name="twitter:description" content="Install OpenCV, PyTorch and TensorRT for Python on Jetson Orin Nano">
+    <meta name="twitter:title" content="Install OpenCV natively on Jetson Orin Nano">
+    <meta name="twitter:description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
     <meta name="twitter:image" content="/assets/img/profile_thumbnail.jpg">
     <meta name="twitter:site" content="@_andrewlee">
     <meta name="twitter:creator" content="@_andrewlee">
@@ -46,10 +46,10 @@
           "@type": "Person",
           "name": "Andrew C. Lee"
         },
-        "url": "https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning-projects/",
+        "url": "https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/",
         "@type": "WebSite",
-        "description": "Install OpenCV, PyTorch and TensorRT for Python on Jetson Orin Nano",
-        "headline": "Prepare Jetson Orin Nano for Deep Learning projects",
+        "description": "Install OpenCV with CUDA natively on Jetson Orin Nano",
+        "headline": "Install OpenCV natively on Jetson Orin Nano",
         "sameAs": ["https://github.com/andrewcwlee", "https://www.linkedin.com/in/andrewcwlee", "https://twitter.com/_andrewlee"],
         "name": "Andrew C. Lee",
         "@context": "https://schema.org"
@@ -82,7 +82,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning-projects/">
+    <link rel="canonical" href="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/">
 
     <!-- Dark Mode -->
     
@@ -169,7 +169,7 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Prepare Jetson Orin Nano for Deep Learning projects</h1>
+    <h1 class="post-title">Install OpenCV natively on Jetson Orin Nano</h1>
     <p class="post-meta">May 25, 2023</p>
     <p class="post-tags">
       <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
@@ -190,13 +190,13 @@
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/jetson_orin_nano-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/jetson_orin_nano-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/jetson_orin_nano-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/jetson_orin_nano.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -214,20 +214,20 @@ I feel the need to document step-by-step setup process primarily for my own refe
   <li><a href="https://forums.developer.nvidia.com/c/agx-autonomous-machines/jetson-embedded-systems/jetson-orin-nano/632" rel="external nofollow noopener" target="_blank">Jetson Orin Nano official forum</a></li>
 </ul>
 
-<h2 id="install-opencv-natively">Install OpenCV natively</h2>
+<h2 id="install-opencv-with-cuda-natively">Install OpenCV with CUDA natively</h2>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/OpenCV_logo-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/OpenCV_logo-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/OpenCV_logo-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/OpenCV_logo.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -292,54 +292,7 @@ free <span class="nt">-h</span>
 <span class="nb">sudo chmod </span>755 ./OpenCV-4-7-0.sh <span class="c"># Set permission</span>
 ./OpenCV-4-7-0.sh                <span class="c"># Run script</span>
 </code></pre></div></div>
-<h2 id="install-pytorch">Install PyTorch</h2>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/Pytorch_logo-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/Pytorch_logo-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/Pytorch_logo-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/Pytorch_logo.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="pytorch logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>For a installing on Ubuntu Desktop, I would head over to <a href="https://pytorch.org" rel="external nofollow noopener" target="_blank">https://pytorch.org</a> and get the installation command of whichever version of Pytorch I want to install. However the version of Pythorch you can install on a Jetson device is quite limited.</p>
-
-<p>(Work in Progress)</p>
-
-<h2 id="install-tensorrt-for-python">Install TensorRT for python</h2>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/TensorRT-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/TensorRT-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/TensorRT-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/TensorRT.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="pytorch logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<p>(Work in Progress)</p>
 
     </div>
   </article>
