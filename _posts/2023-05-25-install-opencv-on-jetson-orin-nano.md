@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Prepare Jetson Orin Nano for Deep Learning projects
+title:  Install OpenCV natively on Jetson Orin Nano
 date:   2023-05-25
-description: Install OpenCV, PyTorch and TensorRT for Python on Jetson Orin Nano
+description: Install OpenCV with CUDA natively on Jetson Orin Nano
 tags: [Jetson]
 toc:
     sidebar: right
@@ -10,7 +10,7 @@ toc:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/jetson_orin_nano.jpg" title="opencv logo" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano.jpg" title="opencv logo" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -21,10 +21,10 @@ I feel the need to document step-by-step setup process primarily for my own refe
 - [Getting Started Nvidia official guide](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit)
 - [Jetson Orin Nano official forum](https://forums.developer.nvidia.com/c/agx-autonomous-machines/jetson-embedded-systems/jetson-orin-nano/632)
 
-## Install OpenCV natively
+## Install OpenCV with CUDA natively
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/OpenCV_logo.png" title="opencv logo" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo.png" title="opencv logo" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -72,21 +72,4 @@ free -m
 sudo chmod 755 ./OpenCV-4-7-0.sh # Set permission
 ./OpenCV-4-7-0.sh                # Run script
 ```
-## Install PyTorch
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/Pytorch_logo.jpg" title="pytorch logo" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
 
-For a installing on Ubuntu Desktop, I would head over to [https://pytorch.org](https://pytorch.org) and get the installation command of whichever version of Pytorch I want to install. However the version of Pythorch you can install on a Jetson device is quite limited.
-
-(Work in Progress)
-
-## Install TensorRT for python
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning-projects/TensorRT.jpg" title="pytorch logo" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-(Work in Progress)

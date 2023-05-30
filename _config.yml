@@ -122,7 +122,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: blog # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: archive of notes, thoughts, etc.
+blog_description: archive of my notes, thoughts, documentation, and more.
 permalink: /blog/:year/:title/
 
 # Pagination
