@@ -17,23 +17,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Install OpenCV natively on Jetson Orin Nano | Andrew C. Lee</title>
+    <title>PyTorch | Andrew C. Lee</title>
     <meta name="author" content="Andrew C. Lee">
-    <meta name="description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
+    <meta name="description" content="PhD Student at University of California, Davis
+">
 
     <!-- OpenGraph -->
     <meta property="og:site_name" content="Andrew C. Lee">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Andrew C. Lee | Install OpenCV natively on Jetson Orin Nano">
-    <meta property="og:url" content="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/">
-    <meta property="og:description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
+    <meta property="og:title" content="Andrew C. Lee | PyTorch">
+    <meta property="og:url" content="https://andrewcwlee.github.io/blog/tag/pytorch/">
+    <meta property="og:description" content="PhD Student at University of California, Davis
+">
     <meta property="og:image" content="/assets/img/profile_thumbnail.jpg">
     <meta property="og:locale" content="en">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Install OpenCV natively on Jetson Orin Nano">
-    <meta name="twitter:description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
+    <meta name="twitter:title" content="PyTorch">
+    <meta name="twitter:description" content="PhD Student at University of California, Davis
+">
     <meta name="twitter:image" content="/assets/img/profile_thumbnail.jpg">
     <meta name="twitter:site" content="@_andrewlee">
     <meta name="twitter:creator" content="@_andrewlee">
@@ -46,10 +49,11 @@
           "@type": "Person",
           "name": "Andrew C. Lee"
         },
-        "url": "https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/",
+        "url": "https://andrewcwlee.github.io/blog/tag/pytorch/",
         "@type": "WebSite",
-        "description": "Install OpenCV with CUDA natively on Jetson Orin Nano",
-        "headline": "Install OpenCV natively on Jetson Orin Nano",
+        "description": "PhD Student at University of California, Davis
+",
+        "headline": "PyTorch",
         "sameAs": ["https://github.com/andrewcwlee", "https://www.linkedin.com/in/andrewcwlee", "https://twitter.com/_andrewlee"],
         "name": "Andrew C. Lee",
         "@context": "https://schema.org"
@@ -73,16 +77,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
 
     
-    <!-- Sidebar Table of Contents -->
-    <link href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css" rel="stylesheet">
-    
 
     <!-- Styles -->
     
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/">
+    <link rel="canonical" href="https://andrewcwlee.github.io/blog/tag/pytorch/">
 
     <!-- Dark Mode -->
     
@@ -160,169 +161,30 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        
-        <div class="row">
-          <!-- main content area -->
-          <div class="col-sm-9">
-            <!-- _layouts/post.html -->
-
-<div class="post">
+        <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Install OpenCV natively on Jetson Orin Nano</h1>
-    <p class="post-meta">May 25, 2023</p>
-    <p class="post-tags">
-      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
-        ·  
-        <a href="/blog/tag/jetson">
-          <i class="fas fa-hashtag fa-sm"></i> Jetson</a>  
-          
-
-    </p>
+    <h1 class="post-title"> <i class="fas fa-hashtag fa-sm"></i> PyTorch </h1>
+    <p class="post-description"> an archive of posts with tag #PyTorch</p>
   </header>
 
-  <article class="post-content">
-    
-    <div id="markdown-content">
-      <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>While I was excited to get the new <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/" rel="external nofollow noopener" target="_blank">Jetson Orin Nano</a> for my project, I ended up encountering a some number of problems that required quite a bit of effort to resolve. 
-I feel the need to document step-by-step setup process primarily for my own reference, and also potentially as a resource for future users who might discover my blog while seeking solutions to similar issues.</p>
-
-<h2 id="useful-links">Useful links</h2>
-<ul>
-  <li><a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit" rel="external nofollow noopener" target="_blank">Getting Started Nvidia official guide</a></li>
-  <li><a href="https://forums.developer.nvidia.com/c/agx-autonomous-machines/jetson-embedded-systems/jetson-orin-nano/632" rel="external nofollow noopener" target="_blank">Jetson Orin Nano official forum</a></li>
-</ul>
-
-<h2 id="install-opencv-with-cuda-natively">Install OpenCV with CUDA natively</h2>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>For vision related projects, you might need to install OpenCV natively on your Orin for CUDA and other frameworks support. I found the repo from <a href="https://github.com/Qengineering/Install-OpenCV-Jetson-Nano" rel="external nofollow noopener" target="_blank">Qengineering</a> very useful. I just needed to change a few line of codes for it to work on the Orin. If you are using the original Jetson nano, Qengineering has all the resources you need to do whatever.</p>
-
-<p>Forked from the original repo from Q-engineering, I created a repo for Jetson Orin Nano.</p>
-
-<!--  -->
-
-<div class="repo p-2 text-center">
-  <a href="https://github.com/qengineering/Install-OpenCV-Jetson-Nano" rel="external nofollow noopener" target="_blank">
-    <img class="repo-img-light w-100" alt="qengineering/Install-OpenCV-Jetson-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=qengineering&amp;repo=Install-OpenCV-Jetson-Nano&amp;theme=swift&amp;show_owner=true">
-    <img class="repo-img-dark w-100" alt="qengineering/Install-OpenCV-Jetson-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=qengineering&amp;repo=Install-OpenCV-Jetson-Nano&amp;theme=apprentice&amp;show_owner=true">
-  </a>
-</div>
-
-<!--  -->
-
-<div class="repo p-2 text-center">
-  <a href="https://github.com/andrewcwlee/Install-OpenCV-Jetson-Orin-Nano" rel="external nofollow noopener" target="_blank">
-    <img class="repo-img-light w-100" alt="andrewcwlee/Install-OpenCV-Jetson-Orin-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=andrewcwlee&amp;repo=Install-OpenCV-Jetson-Orin-Nano&amp;theme=swift&amp;show_owner=false">
-    <img class="repo-img-dark w-100" alt="andrewcwlee/Install-OpenCV-Jetson-Orin-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=andrewcwlee&amp;repo=Install-OpenCV-Jetson-Orin-Nano&amp;theme=apprentice&amp;show_owner=false">
-  </a>
-</div>
-
-<h4 id="download-the-installation-script">Download the installation script</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/andrewcwlee/Install-OpenCV-Jetson-Orin-Nano/raw/main/OpenCV-4-7-0.sh
-</code></pre></div></div>
-
-<p>Please open the <code class="language-plaintext highlighter-rouge">OpenCV-4-7-0.sh</code> file to custom the build for specific needs.</p>
-
-<h4 id="optional-swap-memory-for-faster-installation">(Optional) Swap memory for faster installation</h4>
-<p>With the built-in memory alone, the installation can take up to 3.5 hours. However if memory swap is enabled and have access to more than 8.5GB of memory, you can decrease the installation time.</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free <span class="nt">-h</span> 
-<span class="nb">df</span> <span class="nt">-h</span>                            <span class="c"># Check free storage</span>
-
-<span class="c"># Create swap</span>
-<span class="nb">sudo </span>fallocate <span class="nt">-l</span> 8.5G /swapfile <span class="c"># Create swap named swapfile with 8.5GB </span>
-<span class="nb">ls</span> <span class="nt">-lh</span> /swapfile                 <span class="c"># Check created swap</span>
-
-<span class="c"># Enable swap</span>
-<span class="nb">sudo chmod </span>600 /swapfile         <span class="c"># Set permission</span>
-<span class="nb">sudo </span>mkswap /swapfile            <span class="c"># Set up the file /swapfile as swap space</span>
-<span class="nb">sudo </span>swapon /swapfile            <span class="c"># Enables the swap file immediately</span>
-free <span class="nt">-h</span>
-
-<span class="c"># Remove swap</span>
-<span class="nb">sudo </span>swapoff <span class="nt">-v</span> /swapfile        <span class="c"># Disable swap</span>
-<span class="nb">sudo rm</span> /swapfile                <span class="c"># Remove swapfile</span>
-free <span class="nt">-h</span>
-</code></pre></div></div>
-
-<h4 id="install-opencv">Install OpenCV</h4>
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free <span class="nt">-m</span>
-<span class="nb">sudo chmod </span>755 ./OpenCV-4-7-0.sh <span class="c"># Set permission</span>
-./OpenCV-4-7-0.sh                <span class="c"># Run script</span>
-</code></pre></div></div>
-
-
+  <article>
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+        
+        <tr>
+          <th class="mono" scope="row">May 30, 2023</th>
+          <td>
+              <a class="post-link" href="/blog/2023/prepare-jetson-orin-nano-for-deep-learning/">Prepare Jetson Orin Nano for Deep Learning</a>
+          </td>
+        </tr>
+      
+      </table>
     </div>
   </article>
 
-
-  
-    
-    <br>
-    <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
-
-    <!-- Adds related posts to the end of an article -->
-    <div class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</div>
-    <p class="mb-2">Here are some more articles you might like to read next:</p>
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/prepare-jetson-orin-nano-for-deep-learning/">Prepare Jetson Orin Nano for Deep Learning</a>
-  </li>
-
 </div>
 
-          </div>
-          <!-- sidebar, which will move to the top on a small screen -->
-          <div class="col-sm-3">
-            <nav id="toc-sidebar" class="sticky-top"></nav>
-          </div>
-        </div>
-        
       
     </div>
 
@@ -349,9 +211,6 @@ free <span class="nt">-h</span>
   <!-- Medium Zoom JS -->
   <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
   <script defer src="/assets/js/zoom.js"></script>
-  <!-- Sidebar Table of Contents -->
-  <script defer src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
-
 
   <!-- Bootstrap Table -->
   <script defer src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>

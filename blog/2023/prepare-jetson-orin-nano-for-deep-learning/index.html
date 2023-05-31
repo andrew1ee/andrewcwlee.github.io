@@ -17,23 +17,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Install OpenCV natively on Jetson Orin Nano | Andrew C. Lee</title>
+    <title>Prepare Jetson Orin Nano for Deep Learning | Andrew C. Lee</title>
     <meta name="author" content="Andrew C. Lee">
-    <meta name="description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
+    <meta name="description" content="Install compatible PyTorch, Torchvision, TensorRT and PyCUDA on Jetson Orin Nano">
 
     <!-- OpenGraph -->
     <meta property="og:site_name" content="Andrew C. Lee">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Andrew C. Lee | Install OpenCV natively on Jetson Orin Nano">
-    <meta property="og:url" content="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/">
-    <meta property="og:description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
+    <meta property="og:title" content="Andrew C. Lee | Prepare Jetson Orin Nano for Deep Learning">
+    <meta property="og:url" content="https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning/">
+    <meta property="og:description" content="Install compatible PyTorch, Torchvision, TensorRT and PyCUDA on Jetson Orin Nano">
     <meta property="og:image" content="/assets/img/profile_thumbnail.jpg">
     <meta property="og:locale" content="en">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Install OpenCV natively on Jetson Orin Nano">
-    <meta name="twitter:description" content="Install OpenCV with CUDA natively on Jetson Orin Nano">
+    <meta name="twitter:title" content="Prepare Jetson Orin Nano for Deep Learning">
+    <meta name="twitter:description" content="Install compatible PyTorch, Torchvision, TensorRT and PyCUDA on Jetson Orin Nano">
     <meta name="twitter:image" content="/assets/img/profile_thumbnail.jpg">
     <meta name="twitter:site" content="@_andrewlee">
     <meta name="twitter:creator" content="@_andrewlee">
@@ -46,10 +46,10 @@
           "@type": "Person",
           "name": "Andrew C. Lee"
         },
-        "url": "https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/",
+        "url": "https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning/",
         "@type": "WebSite",
-        "description": "Install OpenCV with CUDA natively on Jetson Orin Nano",
-        "headline": "Install OpenCV natively on Jetson Orin Nano",
+        "description": "Install compatible PyTorch, Torchvision, TensorRT and PyCUDA on Jetson Orin Nano",
+        "headline": "Prepare Jetson Orin Nano for Deep Learning",
         "sameAs": ["https://github.com/andrewcwlee", "https://www.linkedin.com/in/andrewcwlee", "https://twitter.com/_andrewlee"],
         "name": "Andrew C. Lee",
         "@context": "https://schema.org"
@@ -82,7 +82,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/">
+    <link rel="canonical" href="https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning/">
 
     <!-- Dark Mode -->
     
@@ -169,13 +169,17 @@
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Install OpenCV natively on Jetson Orin Nano</h1>
-    <p class="post-meta">May 25, 2023</p>
+    <h1 class="post-title">Prepare Jetson Orin Nano for Deep Learning</h1>
+    <p class="post-meta">May 30, 2023</p>
     <p class="post-tags">
       <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
         ·  
         <a href="/blog/tag/jetson">
           <i class="fas fa-hashtag fa-sm"></i> Jetson</a>  
+          <a href="/blog/tag/pytorch">
+          <i class="fas fa-hashtag fa-sm"></i> PyTorch</a>  
+          <a href="/blog/tag/tensorrt">
+          <i class="fas fa-hashtag fa-sm"></i> TensorRT</a>  
           
 
     </p>
@@ -184,50 +188,20 @@
   <article class="post-content">
     
     <div id="markdown-content">
-      <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/install-opencv-on-jetson-orin-nano/jetson_orin_nano.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>While I was excited to get the new <a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/" rel="external nofollow noopener" target="_blank">Jetson Orin Nano</a> for my project, I ended up encountering a some number of problems that required quite a bit of effort to resolve. 
-I feel the need to document step-by-step setup process primarily for my own reference, and also potentially as a resource for future users who might discover my blog while seeking solutions to similar issues.</p>
-
-<h2 id="useful-links">Useful links</h2>
-<ul>
-  <li><a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit" rel="external nofollow noopener" target="_blank">Getting Started Nvidia official guide</a></li>
-  <li><a href="https://forums.developer.nvidia.com/c/agx-autonomous-machines/jetson-embedded-systems/jetson-orin-nano/632" rel="external nofollow noopener" target="_blank">Jetson Orin Nano official forum</a></li>
-</ul>
-
-<h2 id="install-opencv-with-cuda-natively">Install OpenCV with CUDA natively</h2>
+      <h2 id="install-pytorch">Install PyTorch</h2>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
 
   <picture>
     
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo-1400.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo-1400.webp"></source>
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/posts/install-opencv-on-jetson-orin-nano/OpenCV_logo.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="opencv logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="pytorch logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
 
   </picture>
 
@@ -236,63 +210,134 @@ I feel the need to document step-by-step setup process primarily for my own refe
     </div>
 </div>
 
-<p>For vision related projects, you might need to install OpenCV natively on your Orin for CUDA and other frameworks support. I found the repo from <a href="https://github.com/Qengineering/Install-OpenCV-Jetson-Nano" rel="external nofollow noopener" target="_blank">Qengineering</a> very useful. I just needed to change a few line of codes for it to work on the Orin. If you are using the original Jetson nano, Qengineering has all the resources you need to do whatever.</p>
+<p>For a installing PyTorch on Ubuntu, mac or windows, I would head over to <a href="https://pytorch.org" rel="external nofollow noopener" target="_blank">https://pytorch.org</a> and find the installation command of whichever version of Pytorch I want to install. Unfortunately, the version of Pytorch you can install on a Jetson device is quite limited.</p>
 
-<p>Forked from the original repo from Q-engineering, I created a repo for Jetson Orin Nano.</p>
+<h4 id="available-versions">Available versions</h4>
+<p>Go to <a href="https://developer.download.nvidia.com/compute/redist/jp/v51/pytorch/" rel="external nofollow noopener" target="_blank">https://developer.download.nvidia.com/compute/redist/jp/v51/pytorch/</a> to find which versions are available for install on Jetpack 5.1.1.</p>
 
-<!--  -->
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
 
-<div class="repo p-2 text-center">
-  <a href="https://github.com/qengineering/Install-OpenCV-Jetson-Nano" rel="external nofollow noopener" target="_blank">
-    <img class="repo-img-light w-100" alt="qengineering/Install-OpenCV-Jetson-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=qengineering&amp;repo=Install-OpenCV-Jetson-Nano&amp;theme=swift&amp;show_owner=true">
-    <img class="repo-img-dark w-100" alt="qengineering/Install-OpenCV-Jetson-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=qengineering&amp;repo=Install-OpenCV-Jetson-Nano&amp;theme=apprentice&amp;show_owner=true">
-  </a>
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="available pytorch versions" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
 </div>
 
-<!--  -->
+<p>As of May 30, 2023, <code class="language-plaintext highlighter-rouge">1.14.0</code> and <code class="language-plaintext highlighter-rouge">2.0.0</code> is available. Download the wheel file of your choice. Download the wheel file you want to install.</p>
 
-<div class="repo p-2 text-center">
-  <a href="https://github.com/andrewcwlee/Install-OpenCV-Jetson-Orin-Nano" rel="external nofollow noopener" target="_blank">
-    <img class="repo-img-light w-100" alt="andrewcwlee/Install-OpenCV-Jetson-Orin-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=andrewcwlee&amp;repo=Install-OpenCV-Jetson-Orin-Nano&amp;theme=swift&amp;show_owner=false">
-    <img class="repo-img-dark w-100" alt="andrewcwlee/Install-OpenCV-Jetson-Orin-Nano" src="https://github-readme-stats.vercel.app/api/pin/?username=andrewcwlee&amp;repo=Install-OpenCV-Jetson-Orin-Nano&amp;theme=apprentice&amp;show_owner=false">
-  </a>
+<h4 id="install-prerequisites">Install prerequisites</h4>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>autoconf bc build-essential g++-8 gcc-8 clang-8 lld-8 gettext-base gfortran-8 iputils-ping libbz2-dev libc++-dev libcgal-dev libffi-dev libfreetype6-dev libhdf5-dev libjpeg-dev liblzma-dev libncurses5-dev libncursesw5-dev libpng-dev libreadline-dev libssl-dev libsqlite3-dev libxml2-dev libxslt-dev locales moreutils openssl python-openssl rsync scons python3-pip libopenblas-dev
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip 
+</code></pre></div></div>
+
+<p>Install Numpy and SciPy</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>aiohttp <span class="nv">numpy</span><span class="o">==</span><span class="s1">'1.19.4'</span> <span class="nv">scipy</span><span class="o">==</span><span class="s1">'1.5.3'</span>
+</code></pre></div></div>
+
+<p>Add PATH <code class="language-plaintext highlighter-rouge">LD_LIBRARY_PATH</code></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export</span> <span class="s2">"LD_LIBRARY_PATH=/usr/lib/llvm-8/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--upgrade</span> protobuf
+</code></pre></div></div>
+
+<h4 id="install-pytorch-1">Install PyTorch</h4>
+<p>Install the .whl file downloaded in the last step.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--no-cache</span> /PATH/TO/torch-1.14.0a0+44dac51c.nv23.02-cp38-cp38-linux_aarch64.whl
+</code></pre></div></div>
+
+<!-- #### Find compatible Torchvision
+To find the compatible Torchvision version, clone the original torchvision repo.
+```shell
+git clone https://github.com/pytorch/vision.git
+```
+```shell
+cd vision/;
+python setup.py install
+``` -->
+
+<h2 id="install-tensorrt-for-python">Install TensorRT for Python</h2>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT.jpeg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="pytorch logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
 </div>
+<p>TensorRT is a deep learning inference framework with optimization and acceleration. Refer to more information at the <a href="https://developer.nvidia.com/tensorrt" rel="external nofollow noopener" target="_blank">official website</a>.</p>
 
-<h4 id="download-the-installation-script">Download the installation script</h4>
+<h4 id="installation">Installation</h4>
+<p>If you followed the <a href="https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html#package-management-tool" rel="external nofollow noopener" target="_blank">Jetpack 5.1.1 documentation</a>, TensorRT would be ready to use. If not, here are the steps.</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/andrewcwlee/Install-OpenCV-Jetson-Orin-Nano/raw/main/OpenCV-4-7-0.sh
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository <span class="s2">"deb https://repo.download.nvidia.com/jetson/common r35.3 main"</span>
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>nvidia-jetpack
 </code></pre></div></div>
 
-<p>Please open the <code class="language-plaintext highlighter-rouge">OpenCV-4-7-0.sh</code> file to custom the build for specific needs.</p>
+<h4 id="validation">Validation</h4>
 
-<h4 id="optional-swap-memory-for-faster-installation">(Optional) Swap memory for faster installation</h4>
-<p>With the built-in memory alone, the installation can take up to 3.5 hours. However if memory swap is enabled and have access to more than 8.5GB of memory, you can decrease the installation time.</p>
+<p>Run Python interpreter and import tensorrt</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="n">tensorrt</span>
+<span class="gp">&gt;&gt;&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="n">tensorrt</span><span class="p">.</span><span class="n">__version__</span><span class="p">)</span>                <span class="c1"># Print TensorRT version
+</span><span class="gp">&gt;&gt;&gt;</span> <span class="mf">8.5</span><span class="p">.</span><span class="mf">2.2</span>
+<span class="gp">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">tensorrt</span><span class="p">.</span><span class="nc">Builder</span><span class="p">(</span><span class="n">tensorrt</span><span class="p">.</span><span class="nc">Logger</span><span class="p">())</span> <span class="c1"># Check if tensorrt is working fine with CUDA
+</span><span class="gp">&gt;&gt;&gt;</span>                                            <span class="c1"># If no error is returned, TensorRT is installed and works with CUDA
+</span></code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free <span class="nt">-h</span> 
-<span class="nb">df</span> <span class="nt">-h</span>                            <span class="c"># Check free storage</span>
+<h2 id="install-pycuda">Install PyCUDA</h2>
 
-<span class="c"># Create swap</span>
-<span class="nb">sudo </span>fallocate <span class="nt">-l</span> 8.5G /swapfile <span class="c"># Create swap named swapfile with 8.5GB </span>
-<span class="nb">ls</span> <span class="nt">-lh</span> /swapfile                 <span class="c"># Check created swap</span>
+<p>Let Jetson know where CUDA is located by adding PATHs</p>
 
-<span class="c"># Enable swap</span>
-<span class="nb">sudo chmod </span>600 /swapfile         <span class="c"># Set permission</span>
-<span class="nb">sudo </span>mkswap /swapfile            <span class="c"># Set up the file /swapfile as swap space</span>
-<span class="nb">sudo </span>swapon /swapfile            <span class="c"># Enables the swap file immediately</span>
-free <span class="nt">-h</span>
-
-<span class="c"># Remove swap</span>
-<span class="nb">sudo </span>swapoff <span class="nt">-v</span> /swapfile        <span class="c"># Disable swap</span>
-<span class="nb">sudo rm</span> /swapfile                <span class="c"># Remove swapfile</span>
-free <span class="nt">-h</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/cuda/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/cuda/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+</code></pre></div></div>
+<p>Restart Terminal or enter the following command.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.bashrc
 </code></pre></div></div>
 
-<h4 id="install-opencv">Install OpenCV</h4>
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free <span class="nt">-m</span>
-<span class="nb">sudo chmod </span>755 ./OpenCV-4-7-0.sh <span class="c"># Set permission</span>
-./OpenCV-4-7-0.sh                <span class="c"># Run script</span>
+<p>If PATH is added correctly, the following command should pring the version of nvcc (Nvidia CUDA Complier Driver)</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc <span class="nt">--version</span>
 </code></pre></div></div>
 
+<h4 id="prerequisite">Prerequisite</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>Cython
+</code></pre></div></div>
+
+<h4 id="install-pycuda-1">Install PyCUDA</h4>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>pycuda
+</code></pre></div></div>
 
     </div>
   </article>
@@ -311,7 +356,7 @@ free <span class="nt">-h</span>
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/prepare-jetson-orin-nano-for-deep-learning/">Prepare Jetson Orin Nano for Deep Learning</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/install-opencv-on-jetson-orin-nano/">Install OpenCV natively on Jetson Orin Nano</a>
   </li>
 
 </div>

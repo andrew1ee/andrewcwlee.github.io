@@ -1,5 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://andrewcwlee.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://andrewcwlee.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-30T20:38:47+00:00</updated><id>https://andrewcwlee.github.io/feed.xml</id><title type="html">blank</title><subtitle>PhD Student at University of California, Davis
-</subtitle><entry><title type="html">Install OpenCV natively on Jetson Orin Nano</title><link href="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/" rel="alternate" type="text/html" title="Install OpenCV natively on Jetson Orin Nano" /><published>2023-05-25T00:00:00+00:00</published><updated>2023-05-25T00:00:00+00:00</updated><id>https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano</id><content type="html" xml:base="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/"><![CDATA[<div class="row">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://andrewcwlee.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://andrewcwlee.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-31T09:32:56+00:00</updated><id>https://andrewcwlee.github.io/feed.xml</id><title type="html">blank</title><subtitle>PhD Student at University of California, Davis
+</subtitle><entry><title type="html">Prepare Jetson Orin Nano for Deep Learning</title><link href="https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning/" rel="alternate" type="text/html" title="Prepare Jetson Orin Nano for Deep Learning" /><published>2023-05-30T00:00:00+00:00</published><updated>2023-05-30T00:00:00+00:00</updated><id>https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning</id><content type="html" xml:base="https://andrewcwlee.github.io/blog/2023/prepare-jetson-orin-nano-for-deep-learning/"><![CDATA[<h2 id="install-pytorch">Install PyTorch</h2>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/Pytorch_logo.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="pytorch logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+
+<p>For a installing PyTorch on Ubuntu, mac or windows, I would head over to <a href="https://pytorch.org">https://pytorch.org</a> and find the installation command of whichever version of Pytorch I want to install. Unfortunately, the version of Pytorch you can install on a Jetson device is quite limited.</p>
+
+<h4 id="available-versions">Available versions</h4>
+<p>Go to <a href="https://developer.download.nvidia.com/compute/redist/jp/v51/pytorch/">https://developer.download.nvidia.com/compute/redist/jp/v51/pytorch/</a> to find which versions are available for install on Jetpack 5.1.1.</p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/available-pytorch-versions.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="available pytorch versions" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+
+<p>As of May 30, 2023, <code class="language-plaintext highlighter-rouge">1.14.0</code> and <code class="language-plaintext highlighter-rouge">2.0.0</code> is available. Download the wheel file of your choice. Download the wheel file you want to install.</p>
+
+<h4 id="install-prerequisites">Install prerequisites</h4>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>autoconf bc build-essential g++-8 gcc-8 clang-8 lld-8 gettext-base gfortran-8 iputils-ping libbz2-dev libc++-dev libcgal-dev libffi-dev libfreetype6-dev libhdf5-dev libjpeg-dev liblzma-dev libncurses5-dev libncursesw5-dev libpng-dev libreadline-dev libssl-dev libsqlite3-dev libxml2-dev libxslt-dev locales moreutils openssl python-openssl rsync scons python3-pip libopenblas-dev
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip 
+</code></pre></div></div>
+
+<p>Install Numpy and SciPy</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>aiohttp <span class="nv">numpy</span><span class="o">==</span><span class="s1">'1.19.4'</span> <span class="nv">scipy</span><span class="o">==</span><span class="s1">'1.5.3'</span>
+</code></pre></div></div>
+
+<p>Add PATH <code class="language-plaintext highlighter-rouge">LD_LIBRARY_PATH</code></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export</span> <span class="s2">"LD_LIBRARY_PATH=/usr/lib/llvm-8/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--upgrade</span> protobuf
+</code></pre></div></div>
+
+<h4 id="install-pytorch-1">Install PyTorch</h4>
+<p>Install the .whl file downloaded in the last step.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--no-cache</span> /PATH/TO/torch-1.14.0a0+44dac51c.nv23.02-cp38-cp38-linux_aarch64.whl
+</code></pre></div></div>
+
+<!-- #### Find compatible Torchvision
+To find the compatible Torchvision version, clone the original torchvision repo.
+```shell
+git clone https://github.com/pytorch/vision.git
+```
+```shell
+cd vision/;
+python setup.py install
+``` -->
+
+<h2 id="install-tensorrt-for-python">Install TensorRT for Python</h2>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/posts/prepare-jetson-orin-nano-for-deep-learning/TensorRT.jpeg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="pytorch logo" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<p>TensorRT is a deep learning inference framework with optimization and acceleration. Refer to more information at the <a href="https://developer.nvidia.com/tensorrt">official website</a>.</p>
+
+<h4 id="installation">Installation</h4>
+<p>If you followed the <a href="https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html#package-management-tool">Jetpack 5.1.1 documentation</a>, TensorRT would be ready to use. If not, here are the steps.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository <span class="s2">"deb https://repo.download.nvidia.com/jetson/common r35.3 main"</span>
+</code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>nvidia-jetpack
+</code></pre></div></div>
+
+<h4 id="validation">Validation</h4>
+
+<p>Run Python interpreter and import tensorrt</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="n">tensorrt</span>
+<span class="gp">&gt;&gt;&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="n">tensorrt</span><span class="p">.</span><span class="n">__version__</span><span class="p">)</span>                <span class="c1"># Print TensorRT version
+</span><span class="gp">&gt;&gt;&gt;</span> <span class="mf">8.5</span><span class="p">.</span><span class="mf">2.2</span>
+<span class="gp">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">tensorrt</span><span class="p">.</span><span class="nc">Builder</span><span class="p">(</span><span class="n">tensorrt</span><span class="p">.</span><span class="nc">Logger</span><span class="p">())</span> <span class="c1"># Check if tensorrt is working fine with CUDA
+</span><span class="gp">&gt;&gt;&gt;</span>                                            <span class="c1"># If no error is returned, TensorRT is installed and works with CUDA
+</span></code></pre></div></div>
+
+<h2 id="install-pycuda">Install PyCUDA</h2>
+
+<p>Let Jetson know where CUDA is located by adding PATHs</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/cuda/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/cuda/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+</code></pre></div></div>
+<p>Restart Terminal or enter the following command.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/.bashrc
+</code></pre></div></div>
+
+<p>If PATH is added correctly, the following command should pring the version of nvcc (Nvidia CUDA Complier Driver)</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h4 id="prerequisite">Prerequisite</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>Cython
+</code></pre></div></div>
+
+<h4 id="install-pycuda-1">Install PyCUDA</h4>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>pycuda
+</code></pre></div></div>]]></content><author><name></name></author><category term="Jetson" /><category term="PyTorch" /><category term="TensorRT" /><summary type="html"><![CDATA[Install compatible PyTorch, Torchvision, TensorRT and PyCUDA on Jetson Orin Nano]]></summary></entry><entry><title type="html">Install OpenCV natively on Jetson Orin Nano</title><link href="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/" rel="alternate" type="text/html" title="Install OpenCV natively on Jetson Orin Nano" /><published>2023-05-25T00:00:00+00:00</published><updated>2023-05-25T00:00:00+00:00</updated><id>https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano</id><content type="html" xml:base="https://andrewcwlee.github.io/blog/2023/install-opencv-on-jetson-orin-nano/"><![CDATA[<div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <figure>
 
